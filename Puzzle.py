@@ -7,10 +7,6 @@ def solve_puzzle(board, source, destination):
     """
     # store the directional moves
     moves = [(0, -1), (0, 1), (-1, 0), (1, 0)]
-    # keep track of each layer in BFS
-    move_count = 0
-    current_layer = 1
-    next_layer = 0
     # visited matrix stores 0 if not visited or previous cell
     visited = [[0 for x in range(len(board[0]))] for x in range(len(board))]
     # process the next moves in the unexplored queue
@@ -28,13 +24,6 @@ def solve_puzzle(board, source, destination):
             if is_valid_move(board, next_cell) and not visited[new_x][new_y]:
                 unexplored.append(next_cell)
                 visited[new_x][new_y] = (x, y)
-                next_layer += 1
-        current_layer -= 1
-        # increment move count for each layer in BFS
-        if current_layer == 0:
-            move_count += 1
-            current_layer = next_layer
-            next_layer = 0
     # no path found
     return None
 

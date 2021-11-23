@@ -36,8 +36,7 @@ def solve_puzzle(board, source, destination):
             current_layer = next_layer
             next_layer = 0
     # no path found
-    return -1
-
+    return None
 
 def is_valid_move(board, cell):
     """
